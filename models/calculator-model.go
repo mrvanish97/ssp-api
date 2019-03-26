@@ -11,8 +11,11 @@ type Calculator struct {
 	Params        map[string]string `json:"params"`
 }
 
-// Converter datatype contains conversion rules
-type formatter = func(in string) string
+// Formatter formats inputs string
+type Formatter = func(in string) string
+
+// Executor perfoms calculation
+type Executor = func(in [][][]*DataCell) [][][]*DataCell
 
 // DataCell datatype containing data from cell
 type DataCell struct {
@@ -28,10 +31,10 @@ type MatrixStyle struct {
 	MaxYSize        int               `json:"maxYSize"`
 	IsXSizeEditable bool              `json:"isXSizeEditable"`
 	IsYSizeEditable bool              `json:"isYSizeEditable"`
-	XLabels 				[]string					`json:"xLabels"`
-	YLabels 				[]string					`json:"yLabels"`
+	XLabels         []string          `json:"xLabels"`
+	YLabels         []string          `json:"yLabels"`
 	Datatype        string            `json:"datatype"`
-	IsEditable      bool              `json:"isEditable"`
+	IsInput         bool              `json:"isInput"`
 	StyleParams     map[string]string `json:"styleParams"`
 	FormatterID     string            `json:"formatterId"`
 }

@@ -7,6 +7,10 @@ package main
    /calculators/{id} -- GET
 */
 
-func main() {
+var controller 
 
+func main() {
+    
 }
+
+func inject(params)
