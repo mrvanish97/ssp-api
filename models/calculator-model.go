@@ -2,17 +2,14 @@ package models
 
 // Calculator datatype container
 type Calculator struct {
-	ID            string            `json:"id"`
-	Title         string            `json:"title"`
-	Locale        string            `json:"locale"`
-	DefaultValues [][][]*DataCell   `json:"matrices"`
-	Syles         []*MatrixStyle    `json:"styles"`
-	ExecutorID    string            `json:"executorId"`
-	Params        map[string]string `json:"params"`
+	ID         string            `json:"id"`
+	Title      string            `json:"title"`
+	Locale     string            `json:"locale"`
+	Syles      []*MatrixStyle    `json:"styles"`
+	ExecutorID string            `json:"executorId"`
+	Params     map[string]string `json:"params"`
+	//DefaultValues [][][]*DataCell   `json:"matrices"`
 }
-
-// Formatter formats inputs string
-type Formatter = func(in string) string
 
 // Executor perfoms calculation
 type Executor = func(in [][][]*DataCell) [][][]*DataCell
@@ -25,18 +22,15 @@ type DataCell struct {
 
 // MatrixStyle contains style parameters for matrix
 type MatrixStyle struct {
-	MinXSize        int               `json:"minXSize"`
-	MinYSize        int               `json:"minYSize"`
-	MaxXSize        int               `json:"maxXSize"`
-	MaxYSize        int               `json:"maxYSize"`
-	IsXSizeEditable bool              `json:"isXSizeEditable"`
-	IsYSizeEditable bool              `json:"isYSizeEditable"`
-	XLabels         []string          `json:"xLabels"`
-	YLabels         []string          `json:"yLabels"`
-	Datatype        string            `json:"datatype"`
-	IsInput         bool              `json:"isInput"`
-	StyleParams     map[string]string `json:"styleParams"`
-	FormatterID     string            `json:"formatterId"`
+	MinXSize     int               `json:"minXSize"`
+	MinYSize     int               `json:"minYSize"`
+	MaxXSize     int               `json:"maxXSize"`
+	MaxYSize     int               `json:"maxYSize"`
+	InitialXSize int               `json:"initialXSize"`
+	InitialYSize int               `json:"initialYSize"`
+	Datatype     string            `json:"datatype"`
+	IsInput      bool              `json:"isInput"`
+	StyleParams  map[string]string `json:"styleParams"`
 }
 
 // CalculationRequest /calculate POST
